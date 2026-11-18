@@ -49,6 +49,7 @@ async function cargarKPIs() {
         .lte('stock_actual', 20)
         .neq('familia', '06-ELECTRO')
         .neq('familia', '09-INFORMATICA');
+        .neq('familia', '11-MOBILIARIO');
 
     document.getElementById(
         'bajoStock'
