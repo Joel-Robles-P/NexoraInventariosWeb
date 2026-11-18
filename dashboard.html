@@ -3,18 +3,251 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Nexora Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexora Inventarios Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+
 </head>
 
 <body>
 
-<h1>
-🚀 Bienvenido a Nexora Inventarios
-</h1>
+    <header class="topbar">
 
-<p>
-Próximamente veremos aquí los datos de Supabase.
-</p>
+        <div class="logo">
+            📦 NEXORA INVENTARIOS
+        </div>
+
+        <div class="user-info">
+            👤 Administrador
+        </div>
+
+    </header>
+
+    <main class="container">
+
+        <!-- BUSCADOR -->
+
+        <section class="search-section">
+
+            <input type="text"
+                placeholder="Buscar producto por código o descripción...">
+
+            <button>
+                🔍 Buscar
+            </button>
+
+        </section>
+
+        <!-- KPI -->
+
+        <section class="kpi-grid">
+
+            <div class="card kpi blue">
+
+                <h3>Total Productos</h3>
+
+                <span>5053</span>
+
+            </div>
+
+            <div class="card kpi green">
+
+                <h3>Total Movimientos</h3>
+
+                <span>7825</span>
+
+            </div>
+
+            <div class="card kpi yellow">
+
+                <h3>Bajo Stock</h3>
+
+                <span>125</span>
+
+            </div>
+
+            <div class="card kpi red">
+
+                <h3>Próximos a vencer</h3>
+
+                <span>8</span>
+
+            </div>
+
+        </section>
+
+        <!-- CONTENIDO -->
+
+        <section class="content">
+
+            <!-- TABLA -->
+
+            <section class="table-panel card">
+
+                <div class="panel-header">
+
+                    <h2>📦 Inventario</h2>
+
+                </div>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Código</th>
+                            <th>Descripción</th>
+                            <th>Stock</th>
+                            <th>Estado</th>
+                            <th>Ubicación</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>AGUA001</td>
+
+                            <td>Agua de Mesa 350ml</td>
+
+                            <td>250</td>
+
+                            <td>
+
+                                <span class="badge success">
+                                    Disponible
+                                </span>
+
+                            </td>
+
+                            <td>Almacén Central</td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>ENG001</td>
+
+                            <td>Engrapador Metálico</td>
+
+                            <td>8</td>
+
+                            <td>
+
+                                <span class="badge warning">
+                                    Bajo Stock
+                                </span>
+
+                            </td>
+
+                            <td>Oficina</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+            <!-- DETALLE -->
+
+            <aside class="detail-panel card">
+
+                <h2>📄 Detalle Producto</h2>
+
+                <hr>
+
+                <p>
+                    <strong>Código:</strong>
+                    AGUA001
+                </p>
+
+                <p>
+                    <strong>Descripción:</strong>
+                    Agua de Mesa 350ml
+                </p>
+
+                <p>
+                    <strong>Familia:</strong>
+                    Bebidas
+                </p>
+
+                <p>
+                    <strong>Stock:</strong>
+                    250
+                </p>
+
+                <p>
+                    <strong>Ubicación:</strong>
+                    Almacén Central
+                </p>
+
+                <p>
+                    <strong>Estado:</strong>
+                    Disponible
+                </p>
+
+                <p>
+                    <strong>Última Área:</strong>
+                    Logística
+                </p>
+
+            </aside>
+
+        </section>
+
+        <!-- MOVIMIENTOS -->
+
+        <section class="movements card">
+
+            <h2>📜 Últimos Movimientos</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Fecha</th>
+                        <th>Movimiento</th>
+                        <th>Cantidad</th>
+                        <th>Responsable</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>07/11/2026</td>
+                        <td>INGRESO</td>
+                        <td>100</td>
+                        <td>Juan Pérez</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>07/11/2026</td>
+                        <td>CONSUMO</td>
+                        <td>20</td>
+                        <td>Pedro Ramos</td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
 
 </body>
 
