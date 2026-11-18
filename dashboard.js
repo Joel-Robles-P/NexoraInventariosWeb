@@ -1,8 +1,8 @@
 const SUPABASE_URL =
-'https://mbywcvtjngsrajmzxawu.supabase.co';
+'https://mbywcvtjngsrajmzxawu.supabase.co/rest/v1/';
 
 const SUPABASE_KEY =
-'TU_PUBLISHABLE_KEY';
+'sb_publishable_Vj7owLMd5Gzv92Rs9TfWhA_b5PR8pTE';
 
 const client =
 supabase.createClient(
