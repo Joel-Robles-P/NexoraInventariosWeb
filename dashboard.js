@@ -54,5 +54,33 @@ async function cargarKPIs() {
     document.getElementById(
         'bajoStock'
     ).innerText = bajoStock;
+
+    const { data: vencimientos, error: errorVenc } =
+    await client
+        .from('stock_actual')
+        .select('verificacion_vencimiento');
+
+    const proximosVencer =
+    vencimientos.filter(item => {
+
+        const texto =
+        (item.verificacion_vencimiento || '')
+        .toUpperCase();
+
+        return texto.startsWith('ALERTA') ||
+            texto.startsWith('ADVERTENCIA');
+
+    }).length;
+
+    document.getElementById(
+        'proximosVencer'
+    ).innerText = proximosVencer;
+
+    console.log(
+        "PROXIMOS A VENCER:",
+        proximosVencer
+    );
+
+
 }
 cargarKPIs();
