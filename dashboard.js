@@ -34,14 +34,20 @@ supabase.createClient(
 
 async function cargarKPIs() {
 
-    const { data, error } =
+    const { count, error } =
     await client
         .from('stock_actual')
-        .select('*');
+        .select('*', {
+            count: 'exact',
+            head: true
+        });
 
-    console.log(data);
+    console.log(count);
     console.log(error);
 
-}
+    document.getElementById(
+        'totalProductos'
+    ).innerText = count;
 
+}
 cargarKPIs();
