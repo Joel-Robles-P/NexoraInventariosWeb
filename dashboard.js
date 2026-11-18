@@ -43,10 +43,13 @@ async function cargarKPIs() {
     await client
         .from('stock_actual')
         .select('*', {
-            count:'exact',
-            head:true
+            count: 'exact',
+            head: true
         })
-        .lte('stock_actual', 20);
+        .lte('stock_actual', 20)
+        .neq('familia', '06-ELECTRO')
+        .neq('familia', '09-INFORMATICA');
+
     document.getElementById(
         'bajoStock'
     ).innerText = bajoStock;
