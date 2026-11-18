@@ -10,25 +10,37 @@ supabase.createClient(
     SUPABASE_KEY
 );
 
+// async function cargarKPIs() {
+
+//     const { count, error } =
+//     await client
+//         .from('stock_actual')
+//         .select('*', {
+//             count: 'exact',
+//             head: true
+//         });
+
+//     if (error) {
+
+//         console.error(error);
+//         return;
+//     }
+
+//     document.getElementById(
+//         'totalProductos'
+//     ).innerText = count;
+
+// }
+
 async function cargarKPIs() {
 
-    const { count, error } =
+    const { data, error } =
     await client
         .from('stock_actual')
-        .select('*', {
-            count: 'exact',
-            head: true
-        });
+        .select('*');
 
-    if (error) {
-
-        console.error(error);
-        return;
-    }
-
-    document.getElementById(
-        'totalProductos'
-    ).innerText = count;
+    console.log(data);
+    console.log(error);
 
 }
 
