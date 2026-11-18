@@ -39,5 +39,16 @@ async function cargarKPIs() {
         'totalMovimientos'
     ).innerText = movimientos;
 
+    const { count: bajoStock } =
+    await client
+        .from('stock_actual')
+        .select('*', {
+            count:'exact',
+            head:true
+        })
+        .lte('stock_actual', 20);
+    document.getElementById(
+        'bajoStock'
+    ).innerText = bajoStock;
 }
 cargarKPIs();
