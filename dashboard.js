@@ -10,28 +10,6 @@ supabase.createClient(
     SUPABASE_KEY
 );
 
-// async function cargarKPIs() {
-
-//     const { count, error } =
-//     await client
-//         .from('stock_actual')
-//         .select('*', {
-//             count: 'exact',
-//             head: true
-//         });
-
-//     if (error) {
-
-//         console.error(error);
-//         return;
-//     }
-
-//     document.getElementById(
-//         'totalProductos'
-//     ).innerText = count;
-
-// }
-
 async function cargarKPIs() {
 
     const { count, error } =
@@ -42,12 +20,24 @@ async function cargarKPIs() {
             head: true
         });
 
-    console.log(count);
-    console.log(error);
+        console.log("COUNT:", count);
+        console.log("ERROR:", error);
 
     document.getElementById(
         'totalProductos'
     ).innerText = count;
+
+    const { count: movimientos } =
+    await client
+        .from('movimientos_stock')
+        .select('*', {
+            count: 'exact',
+            head: true
+        });
+
+    document.getElementById(
+        'totalMovimientos'
+    ).innerText = movimientos;
 
 }
 cargarKPIs();
