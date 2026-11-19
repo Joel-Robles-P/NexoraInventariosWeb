@@ -7,14 +7,20 @@ function validarLogin() {
         document.getElementById("password").value;
 
     if (
-        usuario === "admin" &&
-        password === "SIUUUU"
-    ) {
+            usuario === "admin" &&
+            password === "SIUUUU"
+        ) {
 
-        window.location.href = "dashboard.html";
+            sessionStorage.setItem(
+                "logueado",
+                "SI"
+            );
 
-    }
-    else {
+            window.location.href =
+                "dashboard.html";
+
+        }
+        else {
 
         document.getElementById("mensaje")
             .innerText =

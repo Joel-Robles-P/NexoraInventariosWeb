@@ -135,5 +135,16 @@ async function cargarInventario() {
     ).innerHTML = html;
 }
 
+function cerrarSesion() {
+
+    sessionStorage.removeItem(
+        "logueado"
+    );
+
+    window.location.href =
+        "login.html";
+
+}
+
 cargarKPIs();
 cargarInventario();
