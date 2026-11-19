@@ -80,7 +80,60 @@ async function cargarKPIs() {
         "PROXIMOS A VENCER:",
         proximosVencer
     );
-
-
 }
+
+async function cargarInventario() {
+
+    const { data, error } =
+    await client
+        .from('stock_actual')
+        .select(`
+            codigo_patrimonial,
+            descripcion,
+            stock_actual,
+            ubicacion
+        `)
+        .limit(20);
+
+    if (error) {
+
+        console.error(error);
+        return;
+
+    }
+
+    let html = '';
+
+    data.forEach(producto => {
+
+        html += `
+
+        <tr>
+
+            <td>${producto.codigo_patrimonial ?? ''}</td>
+
+            <td>${producto.descripcion ?? ''}</td>
+
+            <td>${producto.stock_actual ?? 0}</td>
+
+            <td>
+                <span class="badge success">
+                    Disponible
+                </span>
+            </td>
+
+            <td>${producto.ubicacion ?? ''}</td>
+
+        </tr>
+
+        `;
+
+    });
+
+    document.getElementById(
+        'tablaInventario'
+    ).innerHTML = html;
+}
+
 cargarKPIs();
+cargarInventario();
