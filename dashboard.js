@@ -101,9 +101,7 @@ async function cargarInventario(textoBusqueda = '') {
     if(textoBusqueda){
 
         consulta =
-        consulta.or(
-            `codigo_patrimonial.ilike.%${textoBusqueda}%,
-            descripcion.ilike.%${textoBusqueda}%`
+        consulta = consulta.or(`codigo_patrimonial.ilike.%${textoBusqueda}%,descripcion.ilike.%${textoBusqueda}%`
         );
 
     }
@@ -111,9 +109,17 @@ async function cargarInventario(textoBusqueda = '') {
     const { data, error } =
     await consulta.limit(10);
 
-        console.log("DATA:", data);
-        console.log("ERROR:", error);
-        console.log("PRIMER PRODUCTO:", data[0]);
+    if (error) {
+
+        console.error(error);
+
+        return;
+
+    }
+
+    console.log("DATA:", data);
+    console.log("ERROR:", error);
+    console.log("PRIMER PRODUCTO:", data[0]);
 
     if (error) {
 
