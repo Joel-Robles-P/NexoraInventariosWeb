@@ -90,8 +90,12 @@ async function cargarInventario() {
         .select(`
             codigo_patrimonial,
             descripcion,
+            familia,
             stock_actual,
-            ubicacion
+            ubicacion,
+            area_designada,
+            fecha_vencimiento,
+            url
         `)
         .limit(20);
 
@@ -108,24 +112,16 @@ async function cargarInventario() {
 
         html += `
 
-        <tr>
-
-            <td>${producto.codigo_patrimonial ?? ''}</td>
-
-            <td>${producto.descripcion ?? ''}</td>
-
-            <td>${producto.stock_actual ?? 0}</td>
-
-            <td>
-                <span class="badge success">
-                    Disponible
-                </span>
-            </td>
-
-            <td>${producto.ubicacion ?? ''}</td>
-
-        </tr>
-
+        <tr onclick="mostrarDetalle(
+            '${producto.codigo_patrimonial ?? ''}',
+            '${producto.descripcion ?? ''}',
+            '${producto.familia ?? ''}',
+            '${producto.stock_actual ?? 0}',
+            '${producto.ubicacion ?? ''}',
+            '${producto.area_designada ?? ''}',
+            '${producto.fecha_vencimiento ?? ''}'
+            '${producto.url ?? ""}'
+        )">
         `;
 
     });
@@ -148,3 +144,62 @@ function cerrarSesion() {
 
 cargarKPIs();
 cargarInventario();
+
+function mostrarDetalle(
+    codigo,
+    descripcion,
+    familia,
+    stock,
+    ubicacion,
+    area,
+    vencimiento,
+    imagen
+){
+
+    document.getElementById(
+        "detalleCodigo"
+    ).innerText = codigo;
+
+    document.getElementById(
+        "detalleDescripcion"
+    ).innerText = descripcion;
+
+    document.getElementById(
+        "detalleFamilia"
+    ).innerText = familia;
+
+    document.getElementById(
+        "detalleStock"
+    ).innerText = stock;
+
+    document.getElementById(
+        "detalleUbicacion"
+    ).innerText = ubicacion;
+
+    document.getElementById(
+        "detalleEstado"
+    ).innerText =
+        stock > 0
+        ? "Disponible"
+        : "Sin Stock";
+
+    document.getElementById(
+        "detalleArea"
+    ).innerText = area || "-";
+
+    document.getElementById(
+        "detalleVencimiento"
+    ).innerText =
+        vencimiento
+        ? vencimiento
+        : "Sin vencimiento";
+
+    document.getElementById(
+    "detalleImagen"
+    ).src =
+        imagen &&
+        imagen.trim() !== ""
+        ? imagen
+        : "https://via.placeholder.com/300x200?text=Sin+Imagen";
+
+}
