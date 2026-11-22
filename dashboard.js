@@ -93,7 +93,7 @@ async function cargarInventario() {
             familia,
             stock_actual,
             ubicacion,
-            ultima_area_designada,
+            ultima_area_asignada,
             fecha_vencimiento,
             url
         `)
@@ -118,7 +118,7 @@ async function cargarInventario() {
             '${producto.familia ?? ''}',
             '${producto.stock_actual ?? 0}',
             '${producto.ubicacion ?? ''}',
-            '${producto.ultima_area_designada ?? ''}',
+            '${producto.ultima_area_asignada ?? ''}',
             '${producto.fecha_vencimiento ?? ''}'
             '${producto.url ?? ""}'
         )">
