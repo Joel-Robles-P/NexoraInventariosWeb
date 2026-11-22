@@ -130,14 +130,16 @@ async function cargarInventario() {
 
     // });
     
-        html = `
+   
 
-            <tr>
-            <td>PRUEBA</td>
-            <td>PRUEBA</td>
-            <td>PRUEBA</td>
-            <td>PRUEBA</td>
-            <td>PRUEBA</td>
+        html += `
+
+        <tr>
+            <td>${producto.codigo_patrimonial ?? ''}</td>
+            <td>${producto.descripcion ?? ''}</td>
+            <td>${producto.stock_actual ?? ''}</td>
+            <td>Disponible</td>
+            <td>${producto.ubicacion ?? ''}</td>
         </tr>
         `;
 
