@@ -107,7 +107,7 @@ async function cargarInventario(textoBusqueda = '') {
     }
 
     const { data, error } =
-    await consulta.limit(10);
+    await consulta.limit(100);
 
     if (error) {
 
