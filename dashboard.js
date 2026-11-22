@@ -131,7 +131,7 @@ async function cargarInventario() {
     // });
     
    
-
+data.forEach(producto => {
         html += `
 
         <tr>
@@ -142,11 +142,13 @@ async function cargarInventario() {
             <td>${producto.ubicacion ?? ''}</td>
         </tr>
         `;
+        });
 
     document.getElementById(
         'tablaInventario'
     ).innerHTML = html;
 }
+
 
 function cerrarSesion() {
 
