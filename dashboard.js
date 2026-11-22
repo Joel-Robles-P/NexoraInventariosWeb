@@ -101,6 +101,7 @@ async function cargarInventario() {
 
         console.log("DATA:", data);
         console.log("ERROR:", error);
+        console.log("PRIMER PRODUCTO:", data[0]);
 
     if (error) {
 
@@ -111,23 +112,32 @@ async function cargarInventario() {
 
     let html = '';
 
-    data.forEach(producto => {
+    // data.forEach(producto => {
 
-        html += `
+    //     html += `
 
-        <tr onclick="mostrarDetalle(
-            '${producto.codigo_patrimonial ?? ''}',
-            '${producto.descripcion ?? ''}',
-            '${producto.familia ?? ''}',
-            '${producto.stock_actual ?? 0}',
-            '${producto.ubicacion ?? ''}',
-            '${producto.ultima_area_asignada ?? ''}',
-            '${producto.fecha_vencimiento ?? ''}'
-            '${producto.url ?? ""}'
-        )">
+    //     <tr onclick="mostrarDetalle(
+    //         '${producto.codigo_patrimonial ?? ''}',
+    //         '${producto.descripcion ?? ''}',
+    //         '${producto.familia ?? ''}',
+    //         '${producto.stock_actual ?? 0}',
+    //         '${producto.ubicacion ?? ''}',
+    //         '${producto.ultima_area_asignada ?? ''}',
+    //         '${producto.fecha_vencimiento ?? ''}'
+    //         '${producto.url ?? ""}'
+    //     )">
+    //     `;
+
+    // });
+
+            <tr>
+            <td>PRUEBA</td>
+            <td>PRUEBA</td>
+            <td>PRUEBA</td>
+            <td>PRUEBA</td>
+            <td>PRUEBA</td>
+        </tr>
         `;
-
-    });
 
     document.getElementById(
         'tablaInventario'
