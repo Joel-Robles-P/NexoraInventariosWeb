@@ -132,17 +132,34 @@ async function cargarInventario() {
     
    
 data.forEach(producto => {
-        html += `
 
-        <tr>
-            <td>${producto.codigo_patrimonial ?? ''}</td>
-            <td>${producto.descripcion ?? ''}</td>
-            <td>${producto.stock_actual ?? ''}</td>
-            <td>Disponible</td>
-            <td>${producto.ubicacion ?? ''}</td>
-        </tr>
-        `;
-        });
+    html += `
+    <tr style="cursor:pointer"
+        onclick="mostrarDetalle(
+            '${producto.codigo_patrimonial ?? ''}',
+            '${producto.descripcion ?? ''}',
+            '${producto.familia ?? ''}',
+            '${producto.stock_actual ?? ''}',
+            '${producto.ubicacion ?? ''}',
+            '${producto.ultima_area_asignada ?? ''}',
+            '${producto.fecha_vencimiento ?? ''}',
+            '${producto.url ?? ''}'
+        )">
+
+        <td>${producto.codigo_patrimonial ?? ''}</td>
+
+        <td>${producto.descripcion ?? ''}</td>
+
+        <td>${producto.stock_actual ?? ''}</td>
+
+        <td>Disponible</td>
+
+        <td>${producto.ubicacion ?? ''}</td>
+
+    </tr>
+    `;
+
+});
 
     document.getElementById(
         'tablaInventario'
