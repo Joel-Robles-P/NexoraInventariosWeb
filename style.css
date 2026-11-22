@@ -130,3 +130,55 @@ button:hover{
     }
 
 }
+
+.logo-corner{
+
+    position:absolute;
+
+    top:30px;
+
+    left:30px;
+}
+
+.logo-corner img{
+
+    width:200px;
+
+    height:auto;
+}
+
+.btn-about{
+
+    position:fixed;
+
+    bottom:30px;
+
+    right:30px;
+
+    background:white;
+
+    color:#0f3d70;
+
+    border:2px solid #0f3d70;
+
+    padding:14px 20px;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+
+        transition:.3s;
+}
+
+.btn-about:hover{
+
+    background:#0f3d70;
+
+    color:white;
+
+    transform:translateY(-2px);
+}
