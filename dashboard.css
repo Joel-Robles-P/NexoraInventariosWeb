@@ -29,7 +29,32 @@ body{
     font-weight:bold;
 }
 
+.logout{
+
+    cursor:pointer;
+
+    color:#dbeafe;
+
+    font-size:14px;
+
+    transition:.3s;
+}
+
+.logout:hover{
+
+    color:white;
+
+    text-decoration:underline;
+}
+
 .user-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
     font-size:15px;
 }
 
