@@ -231,7 +231,9 @@ function mostrarDetalle(
         ? imagen
         : "https://via.placehoDlder.com/300x200?text=Sin+Imagen";
 
-    let temporizadorBusqueda;
+}
+
+let temporizadorBusqueda;
 
     document
     .getElementById("txtBuscar")
@@ -253,6 +255,4 @@ function mostrarDetalle(
 
             }, 100);
 
-    });
-
-}
+});    
