@@ -139,7 +139,7 @@ data.forEach(producto => {
             '${producto.codigo_patrimonial ?? ''}',
             '${producto.descripcion ?? ''}',
             '${producto.familia ?? ''}',
-            '${producto.stock_actual ?? ''}',
+            '${producto.stock_actual ?? 0}',
             '${producto.ubicacion ?? ''}',
             '${producto.ultima_area_asignada ?? ''}',
             '${producto.fecha_vencimiento ?? ''}',
@@ -165,7 +165,6 @@ data.forEach(producto => {
         'tablaInventario'
     ).innerHTML = html;
 }
-
 
 function cerrarSesion() {
 
