@@ -129,6 +129,8 @@ async function cargarInventario() {
     //     `;
 
     // });
+    
+        html = `
 
             <tr>
             <td>PRUEBA</td>
