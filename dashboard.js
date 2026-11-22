@@ -97,7 +97,10 @@ async function cargarInventario() {
             fecha_vencimiento,
             url
         `)
-        .limit(20);
+        .limit(10);
+
+        console.log("DATA:", data);
+        console.log("ERROR:", error);
 
     if (error) {
 
