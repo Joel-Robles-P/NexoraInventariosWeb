@@ -256,3 +256,43 @@ let temporizadorBusqueda;
             }, 100);
 
 });    
+
+async function exportarExcel(){
+
+    const { data: stock } =
+    await client
+        .from('stock_actual')
+        .select('*');
+
+    const { data: movimientos } =
+    await client
+        .from('movimientos_stock')
+        .select('*');
+
+    const libro =
+        XLSX.utils.book_new();
+
+    const hojaStock =
+        XLSX.utils.json_to_sheet(stock);
+
+    const hojaMovimientos =
+        XLSX.utils.json_to_sheet(movimientos);
+
+    XLSX.utils.book_append_sheet(
+        libro,
+        hojaStock,
+        "Stock"
+    );
+
+    XLSX.utils.book_append_sheet(
+        libro,
+        hojaMovimientos,
+        "Movimientos"
+    );
+
+    XLSX.writeFile(
+        libro,
+        "Nexora_Inventarios.xlsx"
+    );
+
+}
