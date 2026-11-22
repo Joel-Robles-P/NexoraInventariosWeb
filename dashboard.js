@@ -231,14 +231,28 @@ function mostrarDetalle(
         ? imagen
         : "https://via.placehoDlder.com/300x200?text=Sin+Imagen";
 
+    let temporizadorBusqueda;
+
     document
-        .getElementById("txtBuscar")
-        .addEventListener("input", function(){
+    .getElementById("txtBuscar")
+    .addEventListener("input", function(){
 
-            cargarInventario(
-                this.value.trim()
-            );
+        clearTimeout(
+            temporizadorBusqueda
+        );
 
-        });
+        const texto =
+            this.value.trim();
+
+        temporizadorBusqueda =
+            setTimeout(() => {
+
+                cargarInventario(
+                    texto
+                );
+
+            }, 300);
+
+    });
 
 }
