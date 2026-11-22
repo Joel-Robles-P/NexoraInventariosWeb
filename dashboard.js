@@ -155,10 +155,6 @@ function mostrarDetalle(
     vencimiento,
     imagen
 )
-
-    console.log(data);
-    console.log(error);
-
 {
 
     document.getElementById(
