@@ -178,13 +178,6 @@ function mostrarDetalle(
     ).innerText = ubicacion;
 
     document.getElementById(
-        "detalleEstado"
-    ).innerText =
-        stock > 0
-        ? "Disponible"
-        : "Sin Stock";
-
-    document.getElementById(
         "detalleArea"
     ).innerText = area || "-";
 
