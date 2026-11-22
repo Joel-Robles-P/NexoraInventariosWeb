@@ -154,7 +154,12 @@ function mostrarDetalle(
     area,
     vencimiento,
     imagen
-){
+);
+
+    console.log(data);
+    console.log(error);
+
+{
 
     document.getElementById(
         "detalleCodigo"
