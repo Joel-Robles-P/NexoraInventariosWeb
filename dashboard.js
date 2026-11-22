@@ -251,7 +251,7 @@ function mostrarDetalle(
                     texto
                 );
 
-            }, 300);
+            }, 100);
 
     });
 
