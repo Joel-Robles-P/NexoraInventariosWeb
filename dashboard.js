@@ -82,10 +82,10 @@ async function cargarKPIs() {
     );
 }
 
-async function cargarInventario() {
+async function cargarInventario(textoBusqueda = '') {
 
-    const { data, error } =
-    await client
+    let consulta =
+    client
         .from('stock_actual')
         .select(`
             codigo_patrimonial,
@@ -96,8 +96,20 @@ async function cargarInventario() {
             ultima_area_asignada,
             fecha_vencimiento,
             url
-        `)
-        .limit(10);
+        `);
+
+    if(textoBusqueda){
+
+        consulta =
+        consulta.or(
+            `codigo_patrimonial.ilike.%${textoBusqueda}%,
+            descripcion.ilike.%${textoBusqueda}%`
+        );
+
+    }
+
+    const { data, error } =
+    await consulta.limit(10);
 
         console.log("DATA:", data);
         console.log("ERROR:", error);
@@ -112,25 +124,7 @@ async function cargarInventario() {
 
     let html = '';
 
-    // data.forEach(producto => {
 
-    //     html += `
-
-    //     <tr onclick="mostrarDetalle(
-    //         '${producto.codigo_patrimonial ?? ''}',
-    //         '${producto.descripcion ?? ''}',
-    //         '${producto.familia ?? ''}',
-    //         '${producto.stock_actual ?? 0}',
-    //         '${producto.ubicacion ?? ''}',
-    //         '${producto.ultima_area_asignada ?? ''}',
-    //         '${producto.fecha_vencimiento ?? ''}'
-    //         '${producto.url ?? ""}'
-    //     )">
-    //     `;
-
-    // });
-    
-   
 data.forEach(producto => {
 
     html += `
@@ -224,11 +218,21 @@ function mostrarDetalle(
         : "Sin vencimiento";
 
     document.getElementById(
-    "detalleImagen"
+        "detalleImagen"
     ).src =
         imagen &&
         imagen.trim() !== ""
         ? imagen
-        : "https://via.placeholder.com/300x200?text=Sin+Imagen";
+        : "https://via.placehoDlder.com/300x200?text=Sin+Imagen";
+
+    document
+        .getElementById("txtBuscar")
+        .addEventListener("input", function(){
+
+            cargarInventario(
+                this.value.trim()
+            );
+
+        });
 
 }
