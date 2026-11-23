@@ -10,6 +10,15 @@ supabase.createClient(
     SUPABASE_KEY
 );
 
+const usuario =
+    sessionStorage.getItem("usuario");
+
+if (usuario) {
+    document.getElementById(
+        "nombreUsuario"
+    ).innerText = "👤 " + usuario;
+}
+
 async function cargarKPIs() {
 
     const { count, error } =
