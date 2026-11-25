@@ -143,8 +143,9 @@ async function cargarInventario(textoBusqueda = '') {
 data.forEach(producto => {
 
     html += `
-    <tr style="cursor:pointer"
-        onclick="mostrarDetalle(
+    <tr class="fila-producto"
+        style="cursor:pointer"
+        onclick="seleccionarFila(this); mostrarDetalle(
             '${producto.codigo_patrimonial ?? ''}',
             '${producto.descripcion ?? ''}',
             '${producto.familia ?? ''}',
@@ -201,6 +202,20 @@ function mostrarDetalle(
 )
 {
 
+    document
+        .querySelectorAll(".fila-producto")
+        .forEach(fila => {
+
+            fila.classList.remove(
+                "fila-seleccionada"
+            );
+
+        });
+
+    event.currentTarget.classList.add(
+        "fila-seleccionada"
+    );
+
     document.getElementById(
         "detalleCodigo"
     ).innerText = codigo;
@@ -238,7 +253,7 @@ function mostrarDetalle(
         imagen &&
         imagen.trim() !== ""
         ? imagen
-        : "img/sin_imagen.png";
+        : "img/image.png";
 
     cargarMovimientos(codigo);
 
@@ -356,6 +371,24 @@ async function exportarExcel(){
     XLSX.writeFile(
         libro,
         "Nexora_Inventarios.xlsx"
+    );
+
+}
+
+function seleccionarFila(fila){
+
+    document
+        .querySelectorAll(".fila-producto")
+        .forEach(f => {
+
+            f.classList.remove(
+                "fila-seleccionada"
+            );
+
+        });
+
+    fila.classList.add(
+        "fila-seleccionada"
     );
 
 }

@@ -295,3 +295,12 @@ td{
 
     background:#eef2f7;
 } */
+
+.fila-seleccionada{
+
+    background:#dbeafe !important;
+
+    border-left:4px solid #0ea5e9;
+
+    font-weight:600;
+}
