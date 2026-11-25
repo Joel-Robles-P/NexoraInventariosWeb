@@ -254,7 +254,7 @@ async function cargarMovimientos(codigo){
         .order('fecha', {
             ascending: false
         })
-        .limit(20);
+        .limit(100);
 
     if(error){
 
