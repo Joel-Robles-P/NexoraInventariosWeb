@@ -287,6 +287,11 @@ async function cargarMovimientos(codigo){
         'tablaMovimientos'
     ).innerHTML = html;
 
+    console.log(
+    "BUSCANDO MOVIMIENTOS DE:",
+    codigo
+);
+
 }
 
 let temporizadorBusqueda;
