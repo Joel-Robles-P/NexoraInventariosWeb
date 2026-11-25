@@ -238,7 +238,7 @@ function mostrarDetalle(
         imagen &&
         imagen.trim() !== ""
         ? imagen
-        : "https://via.placehoDlder.com/300x200?text=Sin+Imagen";
+        : "img/sin_imagen.png";
 
     cargarMovimientos(codigo);
 
