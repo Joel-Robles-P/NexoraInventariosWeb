@@ -40,19 +40,34 @@ function validarLogin() {
 
     const usuarios = [
         {
-            usuario: "admin",
+            usuario: "Joel",
             password: "SIUUUU",
             nombre: "Administrador"
         },
         {
-            usuario: "joel",
-            password: "JOEL2026",
-            nombre: "Joel"
+            usuario: "Junior",
+            password: "ELMASCAPO",
+            nombre: "Jans - El mas Capo"
         },
         {
-            usuario: "edison",
-            password: "EDISON2026",
-            nombre: "Edison"
+            usuario: "Jans",
+            password: "ELMASCAPO",
+            nombre: "Jans - El mas Capo"
+        }
+        {
+            usuario: "Alan",
+            password: "ALAN2026",
+            nombre: "Jose"
+        }
+        {
+            usuario: "Miguel",
+            password: "MIGUEL2026",
+            nombre: "Miguel Bolivar"
+        }
+        {
+            usuario: "Vivian",
+            password: "VIVIAN2026",
+            nombre: "La Vivix"
         }
     ];
 

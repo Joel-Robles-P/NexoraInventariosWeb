@@ -240,6 +240,53 @@ function mostrarDetalle(
         ? imagen
         : "https://via.placehoDlder.com/300x200?text=Sin+Imagen";
 
+    cargarMovimientos(codigo);
+
+}
+
+async function cargarMovimientos(codigo){
+
+    const { data, error } =
+    await client
+        .from('movimientos_stock')
+        .select('*')
+        .eq('codigo', codigo)
+        .order('fecha_hora', {
+            ascending: false
+        })
+        .limit(20);
+
+    if(error){
+
+        console.error(error);
+        return;
+
+    }
+
+    let html = '';
+
+    data.forEach(mov => {
+
+        html += `
+        <tr>
+
+            <td>${mov.fecha ?? ''}</td>
+
+            <td>${mov.tipo_movimiento ?? ''}</td>
+
+            <td>${mov.cantidad ?? ''}</td>
+
+            <td>${mov.responsable_recepcion ?? ''}</td>
+
+        </tr>
+        `;
+
+    });
+
+    document.getElementById(
+        'tablaMovimientos'
+    ).innerHTML = html;
+
 }
 
 let temporizadorBusqueda;
@@ -265,6 +312,8 @@ let temporizadorBusqueda;
             }, 100);
 
 });    
+
+
 
 async function exportarExcel(){
 
