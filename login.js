@@ -53,17 +53,17 @@ function validarLogin() {
             usuario: "Jans",
             password: "ELMASCAPO",
             nombre: "Jans - El mas Capo"
-        }
+        },
         {
             usuario: "Alan",
             password: "ALAN2026",
             nombre: "Jose"
-        }
+        },
         {
             usuario: "Miguel",
             password: "MIGUEL2026",
             nombre: "Miguel Bolivar"
-        }
+        },
         {
             usuario: "Vivian",
             password: "VIVIAN2026",
