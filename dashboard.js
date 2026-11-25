@@ -251,7 +251,7 @@ async function cargarMovimientos(codigo){
         .from('movimientos_stock')
         .select('*')
         .eq('codigo', codigo)
-        .order('fecha_hora', {
+        .order('fecha', {
             ascending: false
         })
         .limit(20);
