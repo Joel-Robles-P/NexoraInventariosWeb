@@ -137,6 +137,11 @@ async function cargarInventario(textoBusqueda = '') {
 
     }
 
+    document.getElementById(
+        "totalResultados"
+    ).innerText =
+        `${data.length} productos`;
+
     let html = '';
 
 
