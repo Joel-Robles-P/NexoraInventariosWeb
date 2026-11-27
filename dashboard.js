@@ -251,19 +251,30 @@ function mostrarDetalle(
         "detalleUbicacion"
     ).innerText = ubicacion;
 
+    let estadoHTML = '';
+    
+        if(Number(stock) > 20){
+        
+            estadoHTML =
+            '<span class="estado-disponible">🟢 Disponible</span>';
+        
+        }
+        else if(Number(stock) > 0){
+        
+            estadoHTML =
+            '<span class="estado-bajostock">🟡 Bajo Stock</span>';
+        
+        }
+        else{
+        
+            estadoHTML =
+            '<span class="estado-agotado">🔴 Agotado</span>';
+        
+        }
+    
     document.getElementById(
         "detalleEstado"
-    ).innerText =
-    
-        Number(stock) > 20
-    
-        ? "Disponible"
-    
-        : Number(stock) > 0
-    
-            ? "Bajo Stock"
-    
-            : "Agotado";
+    ).innerHTML = estadoHTML;
     
     document.getElementById(
         "detalleArea"
