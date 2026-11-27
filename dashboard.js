@@ -251,6 +251,20 @@ function mostrarDetalle(
     ).innerText = ubicacion;
 
     document.getElementById(
+        "detalleEstado"
+    ).innerText =
+    
+        Number(stock) > 20
+    
+        ? "Disponible"
+    
+        : Number(stock) > 0
+    
+            ? "Bajo Stock"
+    
+            : "Agotado";
+    
+    document.getElementById(
         "detalleArea"
     ).innerText = area || "-";
 
