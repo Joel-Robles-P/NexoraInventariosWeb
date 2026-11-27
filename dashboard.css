@@ -304,3 +304,24 @@ td{
 
     font-weight:600;
 }
+
+.estado-disponible{
+
+    color:#16a34a;
+
+    font-weight:bold;
+}
+
+.estado-bajostock{
+
+    color:#f59e0b;
+
+    font-weight:bold;
+}
+
+.estado-agotado{
+
+    color:#dc2626;
+
+    font-weight:bold;
+}
