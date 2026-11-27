@@ -162,7 +162,21 @@ data.forEach(producto => {
 
         <td>${producto.stock_actual ?? ''}</td>
 
-        <td>Disponible</td>
+        <td>
+        
+        ${
+            Number(producto.stock_actual) > 20
+        
+            ? '<span class="estado-disponible">Disponible</span>'
+        
+            : Number(producto.stock_actual) > 0
+        
+                ? '<span class="estado-bajostock">Bajo Stock</span>'
+        
+                : '<span class="estado-agotado">Agotado</span>'
+        }
+        
+        </td>
 
         <td>${producto.ubicacion ?? ''}</td>
 
