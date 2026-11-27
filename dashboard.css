@@ -325,3 +325,23 @@ td{
 
     font-weight:bold;
 }
+
+.inventario-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:10px;
+}
+
+#totalResultados{
+
+    font-size:13px;
+
+    color:#6b7280;
+
+    font-weight:500;
+}
