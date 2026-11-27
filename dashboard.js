@@ -179,6 +179,7 @@ data.forEach(producto => {
         </td>
 
         <td>${producto.ubicacion ?? ''}</td>
+        <td>${producto.ultima_area_asignada ?? ''}</td>
 
     </tr>
     `;
